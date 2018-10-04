@@ -82,58 +82,42 @@ public class Menu {
 		if (game.gameState == STATE.Menu) {
 			g.drawImage(img, 0, 0, Game.WIDTH, Game.HEIGHT, null);
 			handler.render(g);
-			Font font = new Font("Amoebic", 1, 100);
+			Font font = new Font("Amoebic", 1, 60);
 			Font font2 = new Font("Amoebic", 1, 60);
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Game Modes", 1140, 100);
+			g.drawString("Game Modes", 960,100 );
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Loehle's Sandbox", 75, 100);
+			g.drawString("Loehle's Sandbox", 110, 100);
 
-			g.setColor(Color.white);
-			g.drawRect(990, 135, 400, 400);
+			g.setColor(Color.RED);
+			g.drawRect(900, 150, 500, 562);//(X,Y,Width,Height)
 			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Waves", 1110, 215);
+			g.setColor(Color.RED);
+			g.drawString("Waves",1050,400 );
 
-			g.setColor(Color.white);
-			g.drawRect(1440, 135, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Bosses", 1550, 215);
-
-			g.setColor(Color.white);
-			g.drawRect(990, 585, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Attack", 1095, 665);
-
-			g.setColor(Color.white);
-			g.drawRect(1440, 585, 400, 400);
-			g.setFont(font2);
-			g.setColor(Color.white);
-			g.drawString("Hunger", 1550, 665);
-
-			g.setColor(Color.white);
-			g.drawRect(80, 135, 850, 250);
+			
+			g.setColor(Color.green);
+			g.drawRect(80, 150, 600, 160);
 			g.setFont(font);
-			g.setColor(Color.white);
-			g.drawString("Help", 400, 280);
-
-			g.setColor(Color.white);
-			g.drawRect(80, 435, 850, 250);
+			g.setColor(Color.green);
+			g.drawString("Help", 310, 250);
+			
+			g.setColor(Color.CYAN);
+			g.drawRect(80, 350, 600, 160);
 			g.setFont(font);
-			g.setColor(Color.white);
-			g.drawString("Credits", 340, 600);
-
-			g.setColor(Color.white);
-			g.drawRect(80, 735, 850, 250);
+			g.setColor(Color.CYAN);
+			g.drawString("Credits", 270, 450);
+			
+			g.setColor(Color.YELLOW);
+			g.drawRect(80, 550, 600, 160);
 			g.setFont(font);
-			g.setColor(Color.white);
-			g.drawString("Quit", 400, 900);
+			g.setColor(Color.YELLOW);
+			g.drawString("Quit", 310, 650);
+		
 
 		} else if (game.gameState == STATE.Help) {// if the user clicks on "help"
 			Font font = new Font("impact", 1, 50);
