@@ -29,12 +29,12 @@ public class EnemyBurst extends GameObject {
 		this.side = side;
 		this.size = size;
 		if (this.side.equals("left")) {
-			handler.object.add(new EnemyBurstWarning(0, 0, 25, Game.HEIGHT, ID.EnemyBurstWarning, handler));
+			handler.object.add(new EnemyBurstWarning(0, 0, 25, Game.HEIGHT - 325, ID.EnemyBurstWarning, handler));
 			setPos();
 			setVel();
 		} else if (this.side.equals("right")) {
-			handler.object
-					.add(new EnemyBurstWarning(Game.WIDTH - 45, 0, 25, Game.HEIGHT, ID.EnemyBurstWarning, handler));
+			handler.object.add(
+					new EnemyBurstWarning(Game.WIDTH - 400, 0, 25, Game.HEIGHT - 300, ID.EnemyBurstWarning, handler));
 			setPos();
 			setVel();
 
@@ -44,8 +44,8 @@ public class EnemyBurst extends GameObject {
 			setVel();
 
 		} else if (this.side.equals("bottom")) {
-			handler.object
-					.add(new EnemyBurstWarning(0, Game.HEIGHT - 85, Game.WIDTH, 25, ID.EnemyBurstWarning, handler));
+			handler.object.add(
+					new EnemyBurstWarning(0, Game.HEIGHT - 325, Game.WIDTH - 300, 25, ID.EnemyBurstWarning, handler));
 			setPos();
 			setVel();
 
@@ -71,19 +71,19 @@ public class EnemyBurst extends GameObject {
 
 	public void setPos() {
 		if (this.side.equals("left")) {
-			this.y = r.nextInt(((Game.HEIGHT - size) - 0) + 1) + 0;
+			this.y = r.nextInt(((Game.HEIGHT - 325 - size) - 0) + 1) + 0;
 		} else if (this.side.equals("right")) {
-			this.x = Game.WIDTH + 200;
-			this.y = r.nextInt(((Game.HEIGHT - size) - 0) + 1) + 0;
+			this.x = Game.WIDTH + 200 - 425;
+			this.y = r.nextInt(((Game.HEIGHT - 325 - size) - 0) + 1) + 0;
 
 		} else if (this.side.equals("top")) {
-			this.y = -(size);
-			this.x = r.nextInt(((Game.WIDTH - size) - 0) + 1) + 0;
+			this.y = -(size) - 325;
+			this.x = r.nextInt(((Game.WIDTH - 425 - size) - 0) + 1) + 0;
 
 		} else if (this.side.equals("bottom")) {
-			this.y = Game.HEIGHT + 200;
+			this.y = Game.HEIGHT + 200 - 325;
 			;
-			this.x = r.nextInt(((Game.WIDTH - size) - 0) + 1) + 0;
+			this.x = r.nextInt(((Game.WIDTH - 325 - size) - 0) + 1) + 0;
 
 		}
 	}
