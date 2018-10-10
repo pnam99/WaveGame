@@ -136,6 +136,29 @@ public class Menu {
 			g.drawRect(850, 300, 200, 64);
 			g.drawString("Back", 920, 340);
 		}
+		
+		else if (game.gameState == STATE.Difficulty) {// if the user clicks on "waves"
+			Font font = new Font("impact", 1, 100);
+			Font font2 = new Font("impact", 1, 30);
+
+			g.setFont(font);
+			g.setColor(Color.white);
+			g.drawString("Select your difficulty", 300 , 100);
+			
+
+			g.setFont(font2);
+			
+			g.setColor(Color.blue);
+			g.drawRect(500, 600, 200, 64);
+			g.drawString("Easy", 570, 643);
+			
+			
+			g.setColor(Color.red);
+			g.drawRect(800, 600, 200, 64);
+			g.drawString("Hard", 870, 643);
+			
+		}
+		
 
 	}
 

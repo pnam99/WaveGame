@@ -36,7 +36,7 @@ public class Game extends Canvas implements Runnable {
 	 * Used to switch between each of the screens shown to the user
 	 */
 	public enum STATE {
-		Menu, Help, Game, GameOver, Upgrade,
+		Menu, Help, Game, GameOver, Upgrade, Difficulty,
 	};
 
 	/**
@@ -129,7 +129,7 @@ public class Game extends Canvas implements Runnable {
 			} else if (Spawn1to10.LEVEL_SET == 2) {// user is on levels 10 thru 20, update them
 				spawner2.tick();
 			}
-		} else if (gameState == STATE.Menu || gameState == STATE.Help) {// user is on menu, update the menu items
+		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState==STATE.Difficulty) {// user is on menu, update the menu items
 			menu.tick();
 		} else if (gameState == STATE.Upgrade) {// user is on upgrade screen, update the upgrade screen
 			upgradeScreen.tick();
@@ -165,7 +165,7 @@ public class Game extends Canvas implements Runnable {
 
 		if (gameState == STATE.Game) {// user is playing game, draw game objects
 			hud.render(g);
-		} else if (gameState == STATE.Menu || gameState == STATE.Help) {// user is in help or the menu, draw the menu
+		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState==STATE.Difficulty) {// user is in help or the menu, draw the menu
 																		// and help objects
 			menu.render(g);
 		} else if (gameState == STATE.Upgrade) {// user is on the upgrade screen, draw the upgrade screen

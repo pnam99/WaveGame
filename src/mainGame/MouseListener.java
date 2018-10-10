@@ -92,9 +92,8 @@ public class MouseListener extends MouseAdapter {
 		else if (game.gameState == STATE.Menu) {
 			// Waves Button
 			if (mouseOver(mx, my, 990, 135, 400, 400)) {
-				handler.object.clear();
-				game.gameState = STATE.Game;
-				handler.addObject(player);
+				game.gameState = STATE.Difficulty;
+				// handler.addObject(player);
 				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
 				// "images/PickupHealth.png", handler));
 			}
@@ -124,6 +123,21 @@ public class MouseListener extends MouseAdapter {
 			if (mouseOver(mx, my, 850, 300, 200, 64)) {
 				game.gameState = STATE.Menu;
 				return;
+			}
+		}
+		
+		else if (game.gameState== STATE.Difficulty)
+		{
+			if(mouseOver(mx,my,500, 600, 200, 64))//Easy
+			{
+				game.gameState=STATE.Game;
+				handler.addObject(player);		
+			}
+			
+			else if(mouseOver(mx,my,800, 600, 200, 64))//Hard
+			{
+				game.gameState=STATE.Game;
+				handler.addObject(player);		
 			}
 		}
 	}
