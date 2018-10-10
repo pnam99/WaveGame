@@ -39,8 +39,8 @@ public class Player extends GameObject {
 	public void tick() {
 		this.x += velX;
 		this.y += velY;
-		x = Game.clamp(x, 0, Game.WIDTH - 38);
-		y = Game.clamp(y, 0, Game.HEIGHT - 60);
+		x = Game.clamp(x, 0, Game.WIDTH - 425);
+		y = Game.clamp(y, 0, Game.HEIGHT - 325);
 
 		// add the trail that follows it
 		handler.addObject(new Trail(x, y, ID.Trail, Color.white, playerWidth, playerHeight, 0.05, this.handler));

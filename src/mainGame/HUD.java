@@ -13,6 +13,7 @@ import java.awt.Graphics;
 
 public class HUD {
 
+	// James Changed health from 100 to 99999999999
 	public double health = 100;
 	private double healthMax = 100;
 
@@ -23,7 +24,7 @@ public class HUD {
 
 	private boolean regen = false;
 	private int timer = 60;
-	private int healthBarWidth = 400;
+	private int healthBarWidth = 300;
 	private int healthBarModifier = 2;
 	private boolean doubleHealth = false;
 	private String ability = "";
@@ -52,20 +53,20 @@ public class HUD {
 	}
 
 	public void render(Graphics g) {
-		Font font = new Font("Amoebic", 1, 30);
+		Font font = new Font("Amoebic", 1, 20);
 
 		g.setColor(Color.GRAY);
-		g.fillRect(15, 15, healthBarWidth, 64);
-		g.setColor(new Color(75, (int) greenValue, 0));
-		g.fillRect((int) 15, (int) 15, (int) health * 4, 64);
+		g.fillRect(10, 10, healthBarWidth, 30);
+		g.setColor(new Color(30, (int) greenValue, 0));
+		g.fillRect((int) 10, (int) 10, (int) health * 3, 30);
 		g.setColor(scoreColor);
-		g.drawRect(15, 15, healthBarWidth, 64);
+		g.drawRect(10, 10, healthBarWidth, 30);
 
 		g.setFont(font);
 
-		g.drawString("Score: " + score, 15, 115);
-		g.drawString("Level: " + level, 15, 150);
-		g.drawString("Extra Lives: " + extraLives, 15, 185);
+		g.drawString("Score: " + score, 10, 60);
+		g.drawString("Level: " + level, 10, 80);
+		g.drawString("Extra Lives: " + extraLives, 10, 100);
 
 		if (ability.equals("freezeTime")) {
 			g.drawString("Time Freezes: " + abilityUses, Game.WIDTH - 300, 64);
