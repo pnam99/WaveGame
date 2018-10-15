@@ -63,7 +63,7 @@ public class Spawn1to10 {
 		if (levelNumber <= 0) {
 			levelTimer--;
 			if (tempCounter < 1) {// display intro game message ONE time
-				handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, "Let's start off easy...",
+				handler.addObject(new LevelText(Game.WIDTH / 2, Game.HEIGHT / 2 - 200, "Let's start off easy...",
 						ID.Levels1to10Text));
 				tempCounter++;
 			}

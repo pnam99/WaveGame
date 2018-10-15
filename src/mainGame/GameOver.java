@@ -41,16 +41,16 @@ public class GameOver {
 		Font font2 = new Font("Amoebic", 1, 60);
 		g.setFont(font);
 		text = "Game Over";
-		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font, text) / 2, Game.HEIGHT / 2 - 150);
+		g.drawString(text, Game.WIDTH / 3 - getTextWidth(font, text) / 2, Game.HEIGHT / 2 - 300);
 		g.setFont(font2);
 		text = "Level: " + hud.getLevel();
-		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 - 50);
+		g.drawString(text, Game.WIDTH / 3 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 - 200);
 		text = "Score: " + hud.getScore();
-		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 + 50);
+		g.drawString(text, Game.WIDTH / 3 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 - 100);
 		g.setColor(this.retryColor);
 		g.setFont(font2);
-		text = "Click anywhere to play again";
-		g.drawString(text, Game.WIDTH / 2 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2 + 150);
+		text = "Click anywhere to go back to Menu";
+		g.drawString(text, Game.WIDTH / 3 - getTextWidth(font2, text) / 2, Game.HEIGHT / 2);
 
 	}
 

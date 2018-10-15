@@ -91,7 +91,7 @@ public class MouseListener extends MouseAdapter {
 
 		else if (game.gameState == STATE.Menu) {
 			// Waves Button
-			if (mouseOver(mx, my, 990, 135, 400, 400)) {
+			if (mouseOver(mx, my, 800, 150, 400, 462)) {
 				game.gameState = STATE.Difficulty;
 				// handler.addObject(player);
 				// handler.addPickup(new PickupHealth(100, 100, ID.PickupHealth,
@@ -99,7 +99,7 @@ public class MouseListener extends MouseAdapter {
 			}
 
 			// Help Button
-			else if (mouseOver(mx, my, 80, 135, 850, 250)) {
+			else if (mouseOver(mx, my, 80, 125, 600, 135)) {
 				game.gameState = STATE.Help;
 			}
 
@@ -113,14 +113,14 @@ public class MouseListener extends MouseAdapter {
 			}
 
 			// Quit Button
-			else if (mouseOver(mx, my, 80, 735, 850, 250)) {
+			else if (mouseOver(mx, my, 80, 479, 600, 135)) {
 				System.exit(1);
 			}
 		}
 
 		// Back Button for Help screen
 		else if (game.gameState == STATE.Help) {
-			if (mouseOver(mx, my, 850, 300, 200, 64)) {
+			if (mouseOver(mx, my, 551, 540, 200, 64)) {
 				game.gameState = STATE.Menu;
 				return;
 			}
@@ -128,13 +128,13 @@ public class MouseListener extends MouseAdapter {
 		
 		else if (game.gameState== STATE.Difficulty)
 		{
-			if(mouseOver(mx,my,500, 600, 200, 64))//Easy
+			if(mouseOver(mx,my,400, 400, 200, 64))//Easy
 			{
 				game.gameState=STATE.Game;
 				handler.addObject(player);		
 			}
 			
-			else if(mouseOver(mx,my,800, 600, 200, 64))//Hard
+			else if(mouseOver(mx,my,700, 400, 200, 64))//Hard
 			{
 				game.gameState=STATE.Game;
 				handler.addObject(player);		

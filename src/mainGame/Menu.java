@@ -85,38 +85,38 @@ public class Menu {
 			Font font = new Font("Amoebic", 1, 60);
 			Font font2 = new Font("Amoebic", 1, 60);
 
-			g.setFont(font);
-			g.setColor(Color.white);
-			g.drawString("Game Modes", 960,100 );
+			//g.setFont(font);
+			//g.setColor(Color.white);
+			//g.drawString("Game Modes", 960,100 );
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Loehle's Sandbox", 110, 100);
+			g.drawString("Wave Game", 500, 90);
 
 			g.setColor(Color.RED);
-			g.drawRect(900, 150, 500, 562);//(X,Y,Width,Height)
+			g.drawRect(800, 125, 400, 490);//(X,Y,Width,Height)
 			g.setFont(font2);
 			g.setColor(Color.RED);
-			g.drawString("Waves",1050,400 );
+			g.drawString("Waves",905,384);
 
 			
 			g.setColor(Color.green);
-			g.drawRect(80, 150, 600, 160);
+			g.drawRect(80, 125, 600, 135);
 			g.setFont(font);
 			g.setColor(Color.green);
-			g.drawString("Help", 310, 250);
+			g.drawString("Help", 310, 216);
 			
 			g.setColor(Color.CYAN);
-			g.drawRect(80, 350, 600, 160);
+			g.drawRect(80, 300, 600, 135);
 			g.setFont(font);
 			g.setColor(Color.CYAN);
-			g.drawString("Credits", 270, 450);
+			g.drawString("Credits", 270, 384);
 			
 			g.setColor(Color.YELLOW);
-			g.drawRect(80, 550, 600, 160);
+			g.drawRect(80, 479, 600, 135);
 			g.setFont(font);
 			g.setColor(Color.YELLOW);
-			g.drawString("Quit", 310, 650);
+			g.drawString("Quit", 310, 570);
 		
 
 		} else if (game.gameState == STATE.Help) {// if the user clicks on "help"
@@ -125,16 +125,17 @@ public class Menu {
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Help", 900, 70);
+			g.drawString("Help", 600, 100);
 
 			g.setFont(font2);
-			g.drawString("Waves: Simply use WASD to avoid enemies. Once you avoid" + " \n"
-					+ "them long enough, a new batch will spawn in! Defeat each boss to win!", 40, 200);
+			g.drawString("Waves: Simply use WASD to avoid enemies.", 370, 200);
+			g.drawString("Once you avoid" + " \n"
+					+ "them long enough, a new batch will spawn in! Defeat each boss to win!", 60, 300);
 
 			g.setFont(font2);
 			g.setColor(Color.white);
-			g.drawRect(850, 300, 200, 64);
-			g.drawString("Back", 920, 340);
+			g.drawRect(551, 540, 200, 64);
+			g.drawString("Back", 620, 580);
 		}
 		
 		else if (game.gameState == STATE.Difficulty) {// if the user clicks on "waves"
@@ -143,19 +144,19 @@ public class Menu {
 
 			g.setFont(font);
 			g.setColor(Color.white);
-			g.drawString("Select your difficulty", 300 , 100);
+			g.drawString("Select your difficulty", 200 , 150);
 			
 
 			g.setFont(font2);
 			
 			g.setColor(Color.blue);
-			g.drawRect(500, 600, 200, 64);
-			g.drawString("Easy", 570, 643);
+			g.drawRect(400, 400, 200, 64);
+			g.drawString("Easy", 470, 443);
 			
 			
 			g.setColor(Color.red);
-			g.drawRect(800, 600, 200, 64);
-			g.drawString("Hard", 870, 643);
+			g.drawRect(700, 400, 200, 64);
+			g.drawString("Hard", 770, 443);
 			
 		}
 		
