@@ -32,8 +32,8 @@ public class BossEye extends GameObject {
 	private GameObject player;
 	private Handler handler;
 
-	public BossEye(double x, double y, ID id, Handler handler, int placement) {
-		super(x, y, id);
+	public BossEye(double x, double y, ID id, Handler handler, int placement,boolean dif) {
+		super(x, y, id,dif);
 		this.img = getImage("images/bosseye.png");
 		this.velX = 0;
 		this.velY = 0;
@@ -41,6 +41,7 @@ public class BossEye extends GameObject {
 		this.handler = handler;
 		this.placement = placement;
 		this.timer = 200;
+		this.setDifficulty();
 	}
 
 	public void tick() {

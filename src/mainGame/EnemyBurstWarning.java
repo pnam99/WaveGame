@@ -20,8 +20,9 @@ public class EnemyBurstWarning extends GameObject {
 	private Color color;
 	private int hasFlashed;
 
-	public EnemyBurstWarning(double x, double y, int width, int height, ID id, Handler handler) {
-		super(x, y, id);
+	public EnemyBurstWarning(double x, double y, int width, int height, ID id, Handler handler,boolean dif) {
+		super(x, y, id,dif);
+		this.setDifficulty();
 		this.handler = handler;
 		this.width = width;
 		this.height = height;

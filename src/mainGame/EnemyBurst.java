@@ -20,8 +20,9 @@ public class EnemyBurst extends GameObject {
 	private String side;
 	private Random r = new Random();
 
-	public EnemyBurst(double x, double y, double velX, double velY, int size, String side, ID id, Handler handler) {
-		super(x, y, id);
+	public EnemyBurst(double x, double y, double velX, double velY, int size, String side, ID id, Handler handler,boolean dif) {
+		super(x, y, id,dif);
+		this.setDifficulty();
 		this.handler = handler;
 		this.velX = velX;
 		this.velY = velY;
@@ -29,23 +30,23 @@ public class EnemyBurst extends GameObject {
 		this.side = side;
 		this.size = size;
 		if (this.side.equals("left")) {
-			handler.object.add(new EnemyBurstWarning(0, 0, 25, Game.HEIGHT - 325, ID.EnemyBurstWarning, handler));
+			handler.object.add(new EnemyBurstWarning(0, 0, 25, Game.HEIGHT - 325, ID.EnemyBurstWarning, handler,dif));
 			setPos();
 			setVel();
 		} else if (this.side.equals("right")) {
 			handler.object.add(
-					new EnemyBurstWarning(Game.WIDTH - 400, 0, 25, Game.HEIGHT - 300, ID.EnemyBurstWarning, handler));
+					new EnemyBurstWarning(Game.WIDTH - 400, 0, 25, Game.HEIGHT - 300, ID.EnemyBurstWarning, handler,dif));
 			setPos();
 			setVel();
 
 		} else if (this.side.equals("top")) {
-			handler.object.add(new EnemyBurstWarning(0, 0, Game.WIDTH, 25, ID.EnemyBurstWarning, handler));
+			handler.object.add(new EnemyBurstWarning(0, 0, Game.WIDTH, 25, ID.EnemyBurstWarning, handler,dif));
 			setPos();
 			setVel();
 
 		} else if (this.side.equals("bottom")) {
 			handler.object.add(
-					new EnemyBurstWarning(0, Game.HEIGHT - 325, Game.WIDTH - 300, 25, ID.EnemyBurstWarning, handler));
+					new EnemyBurstWarning(0, Game.HEIGHT - 325, Game.WIDTH - 300, 25, ID.EnemyBurstWarning, handler,dif));
 			setPos();
 			setVel();
 
@@ -62,8 +63,17 @@ public class EnemyBurst extends GameObject {
 
 		timer--;
 		if (timer <= 0) {
-			this.x += velX;
-			this.y += velY;
+			if(dif)
+			{
+				this.x += velX/2;
+				this.y += velY/2;
+			}
+			else
+			{
+				this.x += velX;
+				this.y += velY;
+			}
+			
 
 		}
 

@@ -15,17 +15,25 @@ public class EnemyFast extends GameObject {
 
 	private Handler handler;
 
-	public EnemyFast(double x, double y, ID id, Handler handler) {
-		super(x, y, id);
+	public EnemyFast(double x, double y, ID id, Handler handler,boolean dif) {
+		super(x, y, id,dif);
+		this.setDifficulty();
 		this.handler = handler;
 		velX = 2;
 		velY = 9;
 	}
 
 	public void tick() {
-		this.x += velX;
-		this.y += velY;
-
+		if(dif)
+		{
+			this.x += velX/2;
+			this.y += velY/2;
+		}
+		else
+		{
+			this.x += velX;
+			this.y += velY;
+		}
 		if (this.y <= 0 || this.y >= Game.HEIGHT - 40) {
 			velY *= -1;
 		}

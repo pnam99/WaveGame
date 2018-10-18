@@ -2,7 +2,9 @@ package mainGame;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GraphicsDevice;
 import java.awt.Rectangle;
+import java.awt.Window;
 
 /**
  * A type of enemy in the game
@@ -14,17 +16,25 @@ import java.awt.Rectangle;
 public class EnemyBasic extends GameObject {
 
 	private Handler handler;
-
-	public EnemyBasic(double x, double y, int velX, int velY, ID id, Handler handler) {
-		super(x, y, id);
+	public EnemyBasic(double x, double y, int i, int j, boolean dif, ID id, Handler handler) {
+		super(x, y, id,Game.isEasy);
 		this.handler = handler;
+		this.velX = velX / 2;
+		this.velY = velY / 2;
 		this.velX = velX;
 		this.velY = velY;
+		this.setDifficulty();
+
 	}
 
 	public void tick() {
-		this.x += velX;
-		this.y += velY;
+		if (dif) {
+			this.x += velX / 2;
+			this.y += velY / 2;
+		} else {
+			this.x += velX;
+			this.y += velY;
+		}
 
 		if (this.y <= 0 || this.y >= Game.HEIGHT - 453)
 			velY *= -1;

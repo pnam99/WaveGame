@@ -3,6 +3,7 @@ package mainGame;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.GraphicsDevice;
 import java.awt.image.BufferStrategy;
 
 /**
@@ -17,6 +18,7 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 
 	public static final int WIDTH = 1920, HEIGHT = 1080;
+	public static boolean isEasy=true;
 	private Thread thread;
 	private boolean running = false;
 	private Handler handler;
@@ -45,11 +47,11 @@ public class Game extends Canvas implements Runnable {
 	public Game() {
 		handler = new Handler();
 		hud = new HUD();
-		spawner = new Spawn1to10(this.handler, this.hud, this);
-		spawner2 = new Spawn10to20(this.handler, this.hud, this.spawner, this);
+		spawner = new Spawn1to10(this.handler, this.hud, this, isEasy);
+		spawner2 = new Spawn10to20(this.handler, this.hud, this.spawner, this,isEasy);
 		menu = new Menu(this, this.handler, this.hud, this.spawner);
 		upgradeScreen = new UpgradeScreen(this, this.handler, this.hud);
-		player = new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler, this.hud, this);
+		player = new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler, this.hud, this,isEasy);
 		upgrades = new Upgrades(this, this.handler, this.hud, this.upgradeScreen, this.player, this.spawner,
 				this.spawner2);
 		gameOver = new GameOver(this, this.handler, this.hud);
@@ -58,6 +60,10 @@ public class Game extends Canvas implements Runnable {
 		this.addKeyListener(new KeyInput(this.handler, this, this.hud, this.player, this.spawner, this.upgrades));
 		this.addMouseListener(mouseListener);
 		new Window((int) WIDTH, (int) HEIGHT, "Wave Game", this);
+		isEasy=true;//Default
+		
+		
+
 	}
 
 	/**
@@ -204,6 +210,11 @@ public class Game extends Canvas implements Runnable {
 	public static void main(String[] args) {
 
 		new Game();
+	}
+	
+	public void setDif(boolean dif)
+	{
+		isEasy=dif;
 	}
 
 }

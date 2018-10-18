@@ -25,20 +25,29 @@ public class Player extends GameObject {
 	private int playerWidth, playerHeight;
 	public static int playerSpeed = 10;
 
-	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game) {
-		super(x, y, id);
+	public Player(double x, double y, ID id, Handler handler, HUD hud, Game game, boolean dif) {
+		super(x, y, id,dif);
 		this.handler = handler;
 		this.hud = hud;
 		this.game = game;
 		this.damage = 2;
 		playerWidth = 32;
 		playerHeight = 32;
+		this.setDifficulty();
 	}
 
 	@Override
 	public void tick() {
-		this.x += velX;
-		this.y += velY;
+		if(game.isEasy)
+		{
+			this.x += velX*2;
+			this.y += velY*2;
+		}
+		else
+		{
+			this.x += velX;
+			this.y += velY;
+		}
 		x = Game.clamp(x, 0, Game.WIDTH - 674);
 		y = Game.clamp(y, 0, Game.HEIGHT - 453);
 

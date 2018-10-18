@@ -24,8 +24,8 @@ public class LevelText extends GameObject {
 	private Random r = new Random();
 	private int index;
 
-	public LevelText(double x, double y, String text, ID id) {
-		super(x, y, id);
+	public LevelText(double x, double y, String text, ID id,boolean dif) {
+		super(x, y, id,dif);
 		this.text = text;
 		AffineTransform at = new AffineTransform();
 		timer = 15;

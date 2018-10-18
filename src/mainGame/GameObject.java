@@ -19,11 +19,13 @@ public abstract class GameObject {
 	protected double velX, velY;
 	protected boolean isMoving;
 	protected int health;
+	protected boolean dif;
 
-	public GameObject(double x, double y, ID id) {
+	public GameObject(double x, double y, ID id,boolean dif) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
+		this.dif=dif;
 
 	}
 
@@ -80,6 +82,11 @@ public abstract class GameObject {
 
 	public int getHealth() {
 		return this.health;
+	}
+	
+	public void setDifficulty() {
+		dif=Game.isEasy;
+		System.out.println(dif);
 	}
 
 }

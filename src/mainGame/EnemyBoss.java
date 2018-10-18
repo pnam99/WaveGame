@@ -24,18 +24,28 @@ public class EnemyBoss extends GameObject {
 	private Image img;
 	private int spawn;
 
-	public EnemyBoss(ID id, Handler handler) {
-		super(Game.WIDTH / 2 - 48, -120, id);
+	public EnemyBoss(ID id, Handler handler, boolean dif) {
+		super(Game.WIDTH / 2 - 48, -120, id,dif);
 		this.handler = handler;
 		velX = 0;
 		velY = 2;
 		img = getImage("images/EnemyBoss.png");
 		this.health = 1000;//full health is 1000
+		this.setDifficulty();
 	}
 
 	public void tick() {
-		this.x += velX;
-		this.y += velY;
+		if(dif)
+		{
+			this.x += velX/2;
+			this.y += velY/2;
+		}
+		else
+		{
+			this.x += velX;
+			this.y += velY;
+		}
+		
 
 		if (timer <= 0)
 			velY = 0;
@@ -48,10 +58,18 @@ public class EnemyBoss extends GameObject {
 			if (velX == 0)
 				velX = 8;
 			this.isMoving = true;
-			spawn = r.nextInt(5);
+			if(dif)
+			{
+				spawn = r.nextInt(20);//Sets oftenness of the bosses bullet	
+			}
+			else
+			{
+				spawn = r.nextInt(5);//Sets oftenness of the bosses bullet
+			}
+			
 			if (spawn == 0) {
 				handler.addObject(
-						new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler));
+						new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler,dif));
 				this.health -= 3;
 			}
 		}
@@ -100,7 +118,7 @@ public class EnemyBoss extends GameObject {
 	// allows for grey line to be drawn, as well as first bullet shot
 	public void drawFirstBullet() {
 		if (timer2 == 1)
-			handler.addObject(new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler));
+			handler.addObject(new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler,dif));
 	}
 
 }

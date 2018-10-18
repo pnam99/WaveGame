@@ -15,16 +15,25 @@ public class EnemyShooterBullet extends GameObject {
 
 	private Handler handler;
 
-	public EnemyShooterBullet(double x, double y, double velX, double velY, ID id, Handler handler) {
-		super(x, y, id);
+	public EnemyShooterBullet(double x, double y, double velX, double velY, ID id, Handler handler,boolean dif) {
+		super(x, y, id,dif);
 		this.handler = handler;
 		this.velX = velX;
 		this.velY = velY;
+		this.setDifficulty();
 	}
 
 	public void tick() {
-		this.x += velX;
-		this.y += velY;
+		if(dif)
+		{
+			this.x += velX/2;
+			this.y += velY/2;
+		}
+		else
+		{
+			this.x += velX;
+			this.y += velY;
+		}
 
 		// if (this.y <= 0 || this.y >= Game.HEIGHT - 40) velY *= -1;
 		// if (this.x <= 0 || this.x >= Game.WIDTH - 16) velX *= -1;

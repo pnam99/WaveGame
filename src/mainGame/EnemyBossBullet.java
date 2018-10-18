@@ -19,16 +19,22 @@ public class EnemyBossBullet extends GameObject {
 	private int max = 15;
 	private int min = -15;
 
-	public EnemyBossBullet(double x, double y, ID id, Handler handler) {
-		super(x, y, id);
+	public EnemyBossBullet(double x, double y, ID id, Handler handler, boolean dif) {
+		super(x, y, id, dif);
 		this.handler = handler;
 		velX = (r.nextInt((max - min) + 1) + min);// OFFICIAL WAY TO GET A RANGE FOR randInt()
 		velY = 30;
+		this.setDifficulty();
 	}
 
 	public void tick() {
-		this.x += velX;
-		this.y += velY;
+		if (dif) {
+			this.x += velX / 2;
+			this.y += velY / 2;
+		} else {
+			this.x += velX;
+			this.y += velY;
+		}
 
 		// if (this.y <= 0 || this.y >= Game.HEIGHT - 40) velY *= -1;
 		// if (this.x <= 0 || this.x >= Game.WIDTH - 16) velX *= -1;

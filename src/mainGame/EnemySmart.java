@@ -17,10 +17,11 @@ public class EnemySmart extends GameObject {
 	private GameObject player;
 	private int speed;
 
-	public EnemySmart(double x, double y, int speed, ID id, Handler handler) {
-		super(x, y, id);
+	public EnemySmart(double x, double y, int speed, ID id, Handler handler,boolean dif) {
+		super(x, y, id,dif);
 		this.handler = handler;
 		this.speed = speed;
+		this.setDifficulty();
 
 		for (int i = 0; i < handler.object.size(); i++) {
 			if (handler.object.get(i).getId() == ID.Player)
@@ -30,8 +31,16 @@ public class EnemySmart extends GameObject {
 	}
 
 	public void tick() {
-		this.x += velX;
-		this.y += velY;
+		if(dif)
+		{
+			this.x += velX/2;
+			this.y += velY/2;
+		}
+		else
+		{
+			this.x += velX;
+			this.y += velY;
+		}
 		////////////////////////////// pythagorean theorem
 		////////////////////////////// below//////////////////////////////////////////////////
 		double diffX = this.x - player.getX() - 16;

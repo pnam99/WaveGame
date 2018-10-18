@@ -131,12 +131,16 @@ public class MouseListener extends MouseAdapter {
 			if(mouseOver(mx,my,400, 400, 200, 64))//Easy
 			{
 				game.gameState=STATE.Game;
+				game.setDif(true);//Sets to easy mode
 				handler.addObject(player);		
+				System.out.println(game.isEasy);
 			}
 			
 			else if(mouseOver(mx,my,700, 400, 200, 64))//Hard
 			{
 				game.gameState=STATE.Game;
+				game.setDif(false);//Sets to hard mode
+				System.out.println(game.isEasy);
 				handler.addObject(player);		
 			}
 		}

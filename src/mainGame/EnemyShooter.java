@@ -22,8 +22,8 @@ public class EnemyShooter extends GameObject {
 	private double bulletVelY;
 	private int bulletSpeed;
 
-	public EnemyShooter(double x, double y, int sizeX, int sizeY, int bulletSpeed, ID id, Handler handler) {
-		super(x, y, id);
+	public EnemyShooter(double x, double y, int sizeX, int sizeY, int bulletSpeed, ID id, Handler handler,boolean dif) {
+		super(x, y, id,dif);
 		this.handler = handler;
 		this.velX = 0;
 		this.velY = 0;
@@ -31,6 +31,7 @@ public class EnemyShooter extends GameObject {
 		this.sizeY = sizeY;
 		this.timer = 60;
 		this.bulletSpeed = bulletSpeed;
+		this.setDifficulty();
 
 		for (int i = 0; i < handler.object.size(); i++) {
 			if (handler.object.get(i).getId() == ID.Player)
@@ -39,8 +40,16 @@ public class EnemyShooter extends GameObject {
 	}
 
 	public void tick() {
-		this.x += velX;
-		this.y += velY;
+		if(dif)
+		{
+			this.x += velX/2;
+			this.y += velY/2;
+		}
+		else
+		{
+			this.x += velX;
+			this.y += velY;
+		}
 
 		if (this.y <= 0 || this.y >= Game.HEIGHT - 40)
 			velY *= -1;
@@ -69,7 +78,7 @@ public class EnemyShooter extends GameObject {
 		bulletVelY = ((this.bulletSpeed / distance) * diffY);// numerator affects speed of enemy
 
 		handler.addObject(
-				new EnemyShooterBullet(this.x, this.y, bulletVelX, bulletVelY, ID.EnemyShooterBullet, this.handler));
+				new EnemyShooterBullet(this.x, this.y, bulletVelX, bulletVelY, ID.EnemyShooterBullet, this.handler,dif));
 	}
 
 	public void updateEnemy() {

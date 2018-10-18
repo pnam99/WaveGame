@@ -27,8 +27,9 @@ public class Spawn10to20 {
 	private int levelNumber = 0;
 	private int tempCounter = 0;
 	public static int LEVEL_SET_2_RESET = 0;
+	private boolean isEasy;
 
-	public Spawn10to20(Handler handler, HUD hud, Spawn1to10 spawner, Game game) {
+	public Spawn10to20(Handler handler, HUD hud, Spawn1to10 spawner, Game game, boolean isEasy) {
 		restart();
 		this.handler = handler;
 		this.hud = hud;
@@ -42,6 +43,7 @@ public class Spawn10to20 {
 		addLevels();
 		index = r.nextInt(randomMax);
 		levelNumber = 0;
+		this.isEasy = isEasy;
 	}
 
 	public void addLevels() {
@@ -59,9 +61,9 @@ public class Spawn10to20 {
 			levelTimer--;
 			if (tempCounter < 1) {
 				handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, "Same levels...",
-						ID.Levels1to10Text));
+						ID.Levels1to10Text, isEasy));
 				handler.addObject(new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2, "...but a little harder now",
-						ID.Levels1to10Text));
+						ID.Levels1to10Text, isEasy));
 				tempCounter++;
 			}
 			if (levelTimer <= 0) {
@@ -80,8 +82,8 @@ public class Spawn10to20 {
 				tempCounter++;
 			}
 			if (timer == 0) {
-				handler.addObject(
-						new EnemyBasic(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 13, 13, ID.EnemyBasic, handler));
+				handler.addObject(new EnemyBasic(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 13, 13, isEasy,
+						ID.EnemyBasic, handler));
 				timer = 80;
 			}
 			if (levelTimer == 0) {
@@ -107,16 +109,16 @@ public class Spawn10to20 {
 			}
 			if (timer == 30) {
 				handler.addObject(
-						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 20, 2, ID.EnemySweep, handler));
+						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 20, 2, ID.EnemySweep, handler,isEasy));
 			} else if (timer == 20) {
 				handler.addObject(
-						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 20, -2, ID.EnemySweep, handler));
+						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 20, -2, ID.EnemySweep, handler,isEasy));
 			} else if (timer == 10) {
 				handler.addObject(
-						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 20, 4, ID.EnemySweep, handler));
+						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 20, 4, ID.EnemySweep, handler,isEasy));
 			} else if (timer == 0) {
 				handler.addObject(
-						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 20, -4, ID.EnemySweep, handler));
+						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 20, -4, ID.EnemySweep, handler,isEasy));
 				timer = 45;
 			}
 
@@ -142,7 +144,7 @@ public class Spawn10to20 {
 			}
 			if (timer == 0) {
 				handler.addObject(
-						new EnemySmart(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -7, ID.EnemySmart, handler));
+						new EnemySmart(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -7, ID.EnemySmart, handler,isEasy));
 				timer = 60;
 			}
 			if (levelTimer == 0) {
@@ -163,7 +165,7 @@ public class Spawn10to20 {
 			levelTimer--;
 			if (tempCounter < 1) {
 				handler.addObject(new EnemyShooter(r.nextInt(Game.WIDTH) - 35, r.nextInt(Game.HEIGHT) - 75, 100, 100,
-						-30, ID.EnemyShooter, this.handler));
+						-30, ID.EnemyShooter, this.handler,isEasy));
 				levelTimer = 1300;
 				tempCounter++;
 			}
@@ -190,7 +192,7 @@ public class Spawn10to20 {
 				tempCounter++;
 			}
 			if (timer <= 0) {
-				handler.addObject(new EnemyBurst(-250, 250, 75, 75, 250, side[r.nextInt(4)], ID.EnemyBurst, handler));
+				handler.addObject(new EnemyBurst(-250, 250, 75, 75, 250, side[r.nextInt(4)], ID.EnemyBurst, handler,isEasy));
 				timer = 120;
 			}
 
@@ -217,7 +219,7 @@ public class Spawn10to20 {
 			}
 			if (timer == 0) {
 				handler.addObject(
-						new EnemyBasic(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 15, 15, ID.EnemyBasic, handler));
+						new EnemyBasic(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 15, 15, isEasy,ID.EnemyBasic, handler));
 				timer = 50;
 			}
 			if (levelTimer == 0) {
@@ -243,16 +245,16 @@ public class Spawn10to20 {
 			}
 			if (timer == 35) {
 				handler.addObject(
-						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 30, 2, ID.EnemySweep, handler));
+						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 30, 2, ID.EnemySweep, handler,isEasy));
 			} else if (timer == 25) {
 				handler.addObject(
-						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 30, -2, ID.EnemySweep, handler));
+						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 30, -2, ID.EnemySweep, handler,isEasy));
 			} else if (timer == 15) {
 				handler.addObject(
-						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 30, 4, ID.EnemySweep, handler));
+						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 30, 4, ID.EnemySweep, handler,isEasy));
 			} else if (timer == 0) {
 				handler.addObject(
-						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 30, -4, ID.EnemySweep, handler));
+						new EnemySweep(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 30, -4, ID.EnemySweep, handler,isEasy));
 				timer = 30;
 			}
 
@@ -278,7 +280,7 @@ public class Spawn10to20 {
 			}
 			if (timer == 0) {
 				handler.addObject(
-						new EnemySmart(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -9, ID.EnemySmart, handler));
+						new EnemySmart(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -9, ID.EnemySmart, handler,isEasy));
 				timer = 50;
 			}
 			if (levelTimer == 0) {
@@ -299,7 +301,7 @@ public class Spawn10to20 {
 			levelTimer--;
 			if (tempCounter < 1) {
 				handler.addObject(new EnemyShooter(r.nextInt(Game.WIDTH) - 35, r.nextInt(Game.HEIGHT) - 75, 200, 200,
-						-40, ID.EnemyShooter, this.handler));
+						-40, ID.EnemyShooter, this.handler,isEasy));
 				levelTimer = 2500;
 				tempCounter++;
 			}
@@ -326,7 +328,7 @@ public class Spawn10to20 {
 				tempCounter++;
 			}
 			if (timer <= 0) {
-				handler.addObject(new EnemyBurst(-300, 300, 60, 60, 300, side[r.nextInt(4)], ID.EnemyBurst, handler));
+				handler.addObject(new EnemyBurst(-300, 300, 60, 60, 300, side[r.nextInt(4)], ID.EnemyBurst, handler,isEasy));
 				timer = 60;
 			}
 
@@ -348,15 +350,15 @@ public class Spawn10to20 {
 
 		else if (levelNumber == 101) {
 			if (tempCounter < 1) {
-				handler.addObject(new BossEye(Game.WIDTH / 2 - 150, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 1));
-				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 2));
-				handler.addObject(new BossEye(Game.WIDTH / 2 + 50, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 3));
-				handler.addObject(new BossEye(Game.WIDTH / 2 - 150, Game.HEIGHT / 2 - 50, ID.BossEye, handler, 4));
-				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 - 50, ID.BossEye, handler, 5));
-				handler.addObject(new BossEye(Game.WIDTH / 2 + 50, Game.HEIGHT / 2 - 50, ID.BossEye, handler, 6));
-				handler.addObject(new BossEye(Game.WIDTH / 2 - 150, Game.HEIGHT / 2 + 50, ID.BossEye, handler, 7));
-				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 + 50, ID.BossEye, handler, 8));
-				handler.addObject(new BossEye(Game.WIDTH / 2 + 50, Game.HEIGHT / 2 + 50, ID.BossEye, handler, 9));
+				handler.addObject(new BossEye(Game.WIDTH / 2 - 150, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 1,isEasy));
+				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 2,isEasy));
+				handler.addObject(new BossEye(Game.WIDTH / 2 + 50, Game.HEIGHT / 2 - 150, ID.BossEye, handler, 3,isEasy));
+				handler.addObject(new BossEye(Game.WIDTH / 2 - 150, Game.HEIGHT / 2 - 50, ID.BossEye, handler, 4,isEasy));
+				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 - 50, ID.BossEye, handler, 5,isEasy));
+				handler.addObject(new BossEye(Game.WIDTH / 2 + 50, Game.HEIGHT / 2 - 50, ID.BossEye, handler, 6,isEasy));
+				handler.addObject(new BossEye(Game.WIDTH / 2 - 150, Game.HEIGHT / 2 + 50, ID.BossEye, handler, 7,isEasy));
+				handler.addObject(new BossEye(Game.WIDTH / 2 - 50, Game.HEIGHT / 2 + 50, ID.BossEye, handler, 8,isEasy));
+				handler.addObject(new BossEye(Game.WIDTH / 2 + 50, Game.HEIGHT / 2 + 50, ID.BossEye, handler, 9,isEasy));
 				tempCounter++;
 			}
 
