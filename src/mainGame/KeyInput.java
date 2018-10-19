@@ -58,7 +58,7 @@ public class KeyInput extends KeyAdapter {
 				// key events for player 1
 				if (key == KeyEvent.VK_W || key == KeyEvent.VK_UP) {
 					tempObject.setVelY(-(this.speed));
-					keyDown[0] = true;					
+					keyDown[0] = true;
 				}
 				if (key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT) {
 					tempObject.setVelX(-(this.speed));
@@ -72,6 +72,15 @@ public class KeyInput extends KeyAdapter {
 					tempObject.setVelX(this.speed);
 					keyDown[3] = true;
 				}
+				
+				// if-statements for when 2 keys of opposite directions are pressed at the same time
+				if (keyDown[0] == true && keyDown[2] == true) {
+					tempObject.setVelY(0);
+				}
+				if (keyDown[1] == true && keyDown[3] == true) {
+					tempObject.setVelX(0);
+				}
+				
 				if (key == KeyEvent.VK_SPACE) {
 					upgrades.levelSkipAbility();
 				}
@@ -117,6 +126,7 @@ public class KeyInput extends KeyAdapter {
 				// horizontal movement
 				if (!keyDown[1] && !keyDown[3])
 					tempObject.setVelX(0);
+
 			}
 
 		}
