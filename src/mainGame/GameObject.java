@@ -86,7 +86,6 @@ public abstract class GameObject {
 	
 	public void setDifficulty() {
 		dif=Game.isEasy;
-		System.out.println(dif);
 	}
 
 }

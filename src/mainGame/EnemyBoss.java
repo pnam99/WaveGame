@@ -25,27 +25,28 @@ public class EnemyBoss extends GameObject {
 	private int spawn;
 
 	public EnemyBoss(ID id, Handler handler, boolean dif) {
-		super(Game.WIDTH / 2 - 48, -120, id,dif);
+		super(Game.WIDTH / 2 - 48, -120, id, dif);
 		this.handler = handler;
 		velX = 0;
-		velY = 2;
 		img = getImage("images/EnemyBoss.png");
-		this.health = 1000;//full health is 1000
+		this.health = 1000;// full health is 1000
 		this.setDifficulty();
+		if (Game.isEasy) {
+			velY = 4;
+		} else{
+			velY = 2;
+		}
+
 	}
 
 	public void tick() {
-		if(dif)
-		{
-			this.x += velX/2;
-			this.y += velY/2;
-		}
-		else
-		{
+		if (dif) {
+			this.x += velX / 2;
+			this.y += velY / 2;
+		} else {
 			this.x += velX;
 			this.y += velY;
 		}
-		
 
 		if (timer <= 0)
 			velY = 0;
@@ -58,18 +59,19 @@ public class EnemyBoss extends GameObject {
 			if (velX == 0)
 				velX = 8;
 			this.isMoving = true;
-			if(dif)
-			{
-				spawn = r.nextInt(20);//Sets oftenness of the bosses bullet	
+			if (dif) {
+				spawn = r.nextInt(20);// Sets oftenness of the bosses bullet
+			} else {
+				spawn = r.nextInt(5);// Sets oftenness of the bosses bullet
 			}
-			else
-			{
-				spawn = r.nextInt(5);//Sets oftenness of the bosses bullet
-			}
-			
+
 			if (spawn == 0) {
 				handler.addObject(
-						new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler,dif));
+						new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler, dif));
+				this.health -= 1;
+			}
+			else if (spawn <=4 && dif)
+			{
 				this.health -= 3;
 			}
 		}
@@ -118,7 +120,8 @@ public class EnemyBoss extends GameObject {
 	// allows for grey line to be drawn, as well as first bullet shot
 	public void drawFirstBullet() {
 		if (timer2 == 1)
-			handler.addObject(new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler,dif));
+			handler.addObject(
+					new EnemyBossBullet((int) this.x + 48, (int) this.y + 96, ID.EnemyBossBullet, handler, dif));
 	}
 
 }
