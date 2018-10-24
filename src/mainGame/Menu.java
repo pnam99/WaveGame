@@ -85,10 +85,15 @@ public class Menu {
 			Font font = new Font("Amoebic", 1, 60);
 			Font font2 = new Font("Amoebic", 1, 60);
 
-			//g.setFont(font);
-			//g.setColor(Color.white);
-			//g.drawString("Game Modes", 960,100 );
-
+			//bottom boundary rectangle
+			g.setColor(Color.WHITE);
+			g.fillRect(0, 659, 1600, 800); //(X,Y,Width,Height)
+			
+			//right boundary rectangle
+			g.setColor(Color.WHITE);
+			g.fillRect(1278, 0, 800, 1600); //(X,Y,Width,Height)
+			
+			
 			g.setFont(font);
 			g.setColor(Color.white);
 			g.drawString("Wave Game", 500, 90);

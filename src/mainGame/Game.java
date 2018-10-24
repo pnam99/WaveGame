@@ -62,7 +62,6 @@ public class Game extends Canvas implements Runnable {
 		new Window((int) WIDTH, (int) HEIGHT, "Wave Game", this);
 		isEasy=true;//Default
 		
-		
 
 	}
 
@@ -163,10 +162,19 @@ public class Game extends Canvas implements Runnable {
 		Graphics g = bs.getDrawGraphics();
 
 		///////// Draw things bellow this/////////////
-
+		
 		g.setColor(Color.black);
 		g.fillRect(0, 0, (int) WIDTH, (int) HEIGHT);
+		
+		//bottom boundary rectangle
+		g.setColor(Color.WHITE);
+		g.fillRect(0, 659, 1600, 800); //(X,Y,Width,Height)
 
+		//right boundary rectangle
+		g.setColor(Color.WHITE);
+		g.fillRect(1278, 0, 800, 1600); //(X,Y,Width,Height)
+		
+		
 		handler.render(g); // ALWAYS RENDER HANDLER, NO MATTER IF MENU OR GAME SCREEN
 
 		if (gameState == STATE.Game) {// user is playing game, draw game objects
