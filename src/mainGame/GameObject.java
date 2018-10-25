@@ -20,6 +20,8 @@ public abstract class GameObject {
 	protected boolean isMoving;
 	protected int health;
 	protected boolean dif;
+	
+
 
 	public GameObject(double x, double y, ID id,boolean dif) {
 		this.x = x;

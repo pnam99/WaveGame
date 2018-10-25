@@ -30,23 +30,23 @@ public class EnemyBurst extends GameObject {
 		this.side = side;
 		this.size = size;
 		if (this.side.equals("left")) {
-			handler.object.add(new EnemyBurstWarning(0, 0, 25, Game.HEIGHT - 325, ID.EnemyBurstWarning, handler,dif));
+			handler.object.add(new EnemyBurstWarning(0, 0, 20, 659, ID.EnemyBurstWarning, handler,dif));
 			setPos();
 			setVel();
 		} else if (this.side.equals("right")) {
 			handler.object.add(
-					new EnemyBurstWarning(Game.WIDTH - 400, 0, 25, Game.HEIGHT - 300, ID.EnemyBurstWarning, handler,dif));
+					new EnemyBurstWarning(1258, 0, 20, 659, ID.EnemyBurstWarning, handler,dif));
 			setPos();
 			setVel();
 
 		} else if (this.side.equals("top")) {
-			handler.object.add(new EnemyBurstWarning(0, 0, Game.WIDTH, 25, ID.EnemyBurstWarning, handler,dif));
+			handler.object.add(new EnemyBurstWarning(0, 0, 1278, 20, ID.EnemyBurstWarning, handler,dif));
 			setPos();
 			setVel();
 
 		} else if (this.side.equals("bottom")) {
 			handler.object.add(
-					new EnemyBurstWarning(0, Game.HEIGHT - 325, Game.WIDTH - 300, 25, ID.EnemyBurstWarning, handler,dif));
+					new EnemyBurstWarning(0, 639, 1278, 20, ID.EnemyBurstWarning, handler,dif));
 			setPos();
 			setVel();
 
@@ -59,7 +59,8 @@ public class EnemyBurst extends GameObject {
 		// if (this.y <= 0 || this.y >= Game.HEIGHT - 40) velY *= -1;
 		// if (this.x <= 0 || this.x >= Game.WIDTH - 16) velX *= -1;
 
-		handler.addObject(new Trail(x, y, ID.Trail, Color.orange, this.size, this.size, 0.025, this.handler));
+		
+		handler.addObject(new Trail(x, y, ID.Trail, Color.ORANGE, this.size, this.size, 0.025, this.handler));
 
 		timer--;
 		if (timer <= 0) {
@@ -83,16 +84,15 @@ public class EnemyBurst extends GameObject {
 		if (this.side.equals("left")) {
 			this.y = r.nextInt(((Game.HEIGHT - 325 - size) - 0) + 1) + 0;
 		} else if (this.side.equals("right")) {
-			this.x = Game.WIDTH + 200 - 425;
-			this.y = r.nextInt(((Game.HEIGHT - 325 - size) - 0) + 1) + 0;
+			this.x = 1278;
+			this.y = 100;
 
 		} else if (this.side.equals("top")) {
 			this.y = -(size) - 325;
 			this.x = r.nextInt(((Game.WIDTH - 425 - size) - 0) + 1) + 0;
 
 		} else if (this.side.equals("bottom")) {
-			this.y = Game.HEIGHT + 200 - 325;
-			;
+			this.y = 659;
 			this.x = r.nextInt(((Game.WIDTH - 325 - size) - 0) + 1) + 0;
 
 		}
@@ -116,7 +116,7 @@ public class EnemyBurst extends GameObject {
 
 	public void render(Graphics g) {
 		g.setColor(Color.orange);
-		g.fillRect((int) x, (int) y, this.size, this.size);
+		g.fillRect((int) x, (int) y, 1, 1);
 
 	}
 

@@ -213,7 +213,7 @@ public class Spawn1to10 {
 				tempCounter++;
 			}
 			if (spawnTimer <= 0) {
-				handler.addObject(new EnemyBurst(-200, 200, 50, 50, 200, side[r.nextInt(4)], ID.EnemyBurst, handler,isEasy));
+				handler.addObject(new EnemyBurst(-200, 200, 50, 50, 100, side[r.nextInt(4)], ID.EnemyBurst, handler,isEasy));
 				spawnTimer = 180;
 			}
 
@@ -349,7 +349,7 @@ public class Spawn1to10 {
 				tempCounter++;
 			}
 			if (spawnTimer <= 0) {
-				handler.addObject(new EnemyBurst(-200, 200, 40, 40, 200, side[r.nextInt(4)], ID.EnemyBurst, handler,isEasy));
+				handler.addObject(new EnemyBurst(-200, 200, 40, 40, 100, side[r.nextInt(4)], ID.EnemyBurst, handler,isEasy));
 				spawnTimer = 90;
 			}
 

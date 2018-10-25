@@ -40,6 +40,9 @@ public class EnemyFast extends GameObject {
 		if (this.x <= 0 || this.x >= Game.WIDTH - 16) {
 			velX *= -1;
 		}
+		
+		//x = Game.clamp(x, 0, Game.WIDTH - 674);
+		//y = Game.clamp(y, 0, Game.HEIGHT - 453);
 
 		handler.addObject(new Trail(x, y, ID.Trail, Color.cyan, 16, 16, 0.025, this.handler));
 

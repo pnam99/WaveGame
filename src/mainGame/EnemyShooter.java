@@ -56,6 +56,9 @@ public class EnemyShooter extends GameObject {
 		if (this.x <= 0 || this.x >= Game.WIDTH - 16)
 			velX *= -1;
 
+		//x = Game.clamp(x, 0, Game.WIDTH - 674);
+		//y = Game.clamp(y, 0, Game.HEIGHT - 453);
+		
 		handler.addObject(new Trail(x, y, ID.Trail, Color.yellow, this.sizeX, this.sizeY, 0.025, this.handler));
 
 		timer--;

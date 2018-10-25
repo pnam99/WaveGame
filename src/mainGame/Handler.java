@@ -1,6 +1,8 @@
 package mainGame;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 
 /**
@@ -70,6 +72,7 @@ public class Handler {
 
 	public void addObject(GameObject object) {
 		this.object.add(object);
+
 	}
 
 	public void removeObject(GameObject object) {

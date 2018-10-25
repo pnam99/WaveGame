@@ -59,7 +59,7 @@ public class Game extends Canvas implements Runnable {
 				this.player, this.upgrades);
 		this.addKeyListener(new KeyInput(this.handler, this, this.hud, this.player, this.spawner, this.upgrades));
 		this.addMouseListener(mouseListener);
-		new Window((int) WIDTH, (int) HEIGHT, "Wave Game", this);
+		new Window((int) 1292, (int) 695, "Wave Game", this);
 		isEasy=true;//Default
 		
 
@@ -173,6 +173,10 @@ public class Game extends Canvas implements Runnable {
 		//right boundary rectangle
 		g.setColor(Color.WHITE);
 		g.fillRect(1278, 0, 800, 1600); //(X,Y,Width,Height)
+		
+		//dimension of game screen
+		//g.setColor(Color.RED);
+		//g.fillRect(0, 0, 1278, 659); //(X,Y,Width,Height)
 		
 		
 		handler.render(g); // ALWAYS RENDER HANDLER, NO MATTER IF MENU OR GAME SCREEN
