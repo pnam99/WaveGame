@@ -3,11 +3,6 @@ package mainGame;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.font.FontRenderContext;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
@@ -164,9 +159,7 @@ public class Menu {
 			g.drawString("Hard", 770, 443);
 			
 			
-		}
 		
-
 	}
-
+	}
 }
