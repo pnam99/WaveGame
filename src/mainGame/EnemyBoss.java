@@ -77,7 +77,7 @@ public class EnemyBoss extends GameObject {
 		}
 
 		// if (this.y <= 0 || this.y >= Game.HEIGHT - 40) velY *= -1;
-		if (this.x <= 0 || this.x >= Game.WIDTH - 742)
+		if (this.x <= 0 || this.x >= Game.WIDTH - 96)
 			velX *= -1;
 
 		// handler.addObject(new Trail(x, y, ID.Trail, Color.red, 96, 96, 0.025,
@@ -104,11 +104,11 @@ public class EnemyBoss extends GameObject {
 
 		// HEALTH BAR
 		g.setColor(Color.GRAY);
-		g.fillRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, 1000, 50);
+		g.fillRect(146,625,1000,25);
 		g.setColor(Color.RED);
-		g.fillRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, this.health, 50);
+		g.fillRect(146,625,this.health,25);
 		g.setColor(Color.WHITE);
-		g.drawRect(Game.WIDTH / 2 - 500, Game.HEIGHT - 150, 1000, 50);
+		g.drawRect(146,625,1000,25);
 
 	}
 
